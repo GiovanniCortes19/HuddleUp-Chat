@@ -7,6 +7,7 @@ import 'firebase/auth'      // user authentication
 // Components
 import SignIn from './components/SignIn'
 import ChatRoom from './components/ChatRoom'
+import SignOut from './components/SignOut'
 
 // Firebase Hooks
 import {useAuthState} from 'react-firebase-hooks/auth'
