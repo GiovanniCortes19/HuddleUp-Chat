@@ -8,7 +8,7 @@ import 'firebase/auth'      // user authentication
 import {useAuthState} from 'react-firebase-hooks/auth'
 import {useCollectionData} from 'react-firebase-hooks/firestore'
 
-// Identify our project
+// Firebase project configuration
 firebase.initializeApp({
   apiKey: "AIzaSyBp5QdKwkon53jA3FAMDBhXfx1A7e46uwI",
   authDomain: "huddleup-chat.firebaseapp.com",
@@ -23,13 +23,22 @@ firebase.initializeApp({
 const auth = firebase.auth();
 const firestore = firebase.firestore();
 
+
+
 function App() {
+
+  // User LogIn / LogOut
+  const [user] = useAuthState()
 
   return (
     <>
       <div>
         <h1>Huddle Up</h1>
       </div>
+
+      <section>
+        {user ? <ChatRoom /> : <SignIn />}
+      </section>
     </>
   )
 }
