@@ -4,6 +4,10 @@ import firebase from 'firebase'
 import 'firebase/firestore' // database
 import 'firebase/auth'      // user authentication
 
+// Components
+import SignIn from './components/SignIn'
+import ChatRoom from './components/ChatRoom'
+
 // Firebase Hooks
 import {useAuthState} from 'react-firebase-hooks/auth'
 import {useCollectionData} from 'react-firebase-hooks/firestore'
