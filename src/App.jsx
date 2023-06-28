@@ -89,18 +89,17 @@ function ChatRoom() {
     setFormValue('')
   }
 
-
 return (
   <>
-      <h1>Messages</h1>
-      <div>
+      <h1 className='chatRoom-title'>Inside the Huddle</h1>
+      <div className='messageDisplay'>
           {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} /> )}
       </div>
 
-      <form onSubmit={sendMessage}>
+      <form className='messageForm' onSubmit={sendMessage}>
 
-        <input value={formValue} onChange={(event)=> setFormValue(event.target.value)} type="text" />
-        <button type='submit'>Send</button>
+        <input className='messageInput' value={formValue} onChange={(event)=> setFormValue(event.target.value)} type="text" />
+        <button className='formBtn' type='submit'>Send</button>
 
       </form>
   </>
@@ -114,7 +113,7 @@ function ChatMessage(props) {
 
 return (
   <div className={`message ${messageClass}`}>
-    <p>{text}</p>
+    <p className='messageText'>{text}</p>
   </div>
 )
 }
