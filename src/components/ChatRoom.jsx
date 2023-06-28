@@ -1,7 +1,7 @@
 import React from 'react'
-import firebase from 'firebase'
-import 'firebase/firestore' // database
-import 'firebase/auth'      // user authentication
+import firebase from 'firebase/compat/app'; 
+import 'firebase/compat/firestore';
+import 'firebase/compat/auth';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 
 // REFERECE FIREBASE SDK

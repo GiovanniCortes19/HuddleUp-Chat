@@ -1,13 +1,13 @@
 import { useState } from 'react'
 import './App.css'
-import firebase from 'firebase'
-import 'firebase/firestore' // database
-import 'firebase/auth'      // user authentication
+import firebase from 'firebase/compat/app'; 
+import 'firebase/compat/firestore';
+import 'firebase/compat/auth';
 
 // Components
-import SignIn from './components/SignIn'
-import ChatRoom from './components/ChatRoom'
-import SignOut from './components/SignOut'
+// import SignIn from './components/SignIn'
+// import ChatRoom from './components/ChatRoom'
+// import SignOut from './components/SignOut'
 
 // Firebase Hooks
 import {useAuthState} from 'react-firebase-hooks/auth'
@@ -46,6 +46,56 @@ function App() {
       </section>
     </>
   )
+}
+
+function SignIn(){
+
+  const signInWithGoogle = () => { 
+      // provider for google auth
+      const provider = new firebase.auth.GoogleAuthProvider();
+      auth.signInWithPopup(provider)
+   }
+
+  return (
+      <button onClick={signInWithGoogle}>Sign in with Google</button>
+  )
+}
+
+function SignOut() {
+
+
+  return auth.currentUser && (
+    <button onClick={()=> auth.signOut()}>Sign Out</button>
+  )
+}
+
+function ChatRoom() {
+  // reference a firestore collection in the firestore database
+  const messagesRef = new firestore.collection('messages');
+  const query = messagesRef.orderBy('createdAt').limit(25);
+  // listen to the data
+  const [messages] = useCollectionData(query, {idField: 'id'})
+
+return (
+  <>
+      <div>
+          {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} /> )}
+      </div>
+
+      <div>
+
+      </div>
+  </>
+)
+}
+
+// ChatMessage Component
+function ChatMessage(props) {
+  const {text, uid} = props.message
+
+return (
+  <p>{text}</p>
+)
 }
 
 export default App
