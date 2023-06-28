@@ -4,7 +4,7 @@ import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
 import 'firebase/compat/auth';
 
-// Components
+// // Components
 // import SignIn from './components/SignIn'
 // import ChatRoom from './components/ChatRoom'
 // import SignOut from './components/SignOut'
@@ -96,9 +96,12 @@ return (
 // MESSAGE COMPONENT
 function ChatMessage(props) {
   const {text, uid} = props.message
+  const messageClass = uid === auth.currentUser.uid ? 'sent' : 'received'
 
 return (
-  <p>{text}</p>
+  <div className={`message ${messageClass}`}>
+    <p>{text}</p>
+  </div>
 )
 }
 

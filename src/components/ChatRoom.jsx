@@ -4,9 +4,9 @@ import 'firebase/compat/firestore';
 import 'firebase/compat/auth';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 
-// REFERECE FIREBASE SDK
-const auth = firebase.auth();
-const firestore = firebase.firestore();
+// // REFERECE FIREBASE SDK
+// const auth = firebase.auth();
+// const firestore = firebase.firestore();
 
 function ChatRoom() {
     // reference a firestore collection in the firestore database
