@@ -110,37 +110,50 @@
 }
 
 /* Messages */
+.username{
+  margin: 0 0 -15px -5px;
+  color: rgba(0, 0, 0, 0.579);
+  font-size: 0.7em;
+  font-weight:600;
+  margin-left: 5px;
+}
 
-.message {
+.bubble{
   border: none;
   padding: 0px 10px;
   height: 40px;
   display: flex;
-  align-items: center;
-  border-radius: 20px;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.messagesent {
+  align-self: flex-end;
+  margin-right: 3em;
+}
+.messagereceived{
+  align-self: flex-start;
+  margin-left: 3em;
 }
 
 .messageText {
   font-weight: bold;
-  padding: 5px;
+  padding: 5px 10px;
+  border-radius: 20px;
 }
 
 .messageDisplay {
   display: flex;
   flex-direction: column;
-  row-gap: 5px;
+  row-gap: 30px;
 }
 
 .sent {
-  align-self: flex-end;
-  margin-right: 3em;
   background-color: rgba(29, 61, 206, 0.883);
   box-shadow: -3px 4px 4px 0px rgba(37, 67, 200, 0.646);
 
 }
 .received{
-  align-self: flex-start;
-  margin-left: 3em;
   background-color: rgba(111, 19, 197, 0.826);
   box-shadow: -3px 4px 4px 0px rgba(122, 37, 201, 0.595);
 
