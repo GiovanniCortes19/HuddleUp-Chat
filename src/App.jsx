@@ -30,7 +30,7 @@ const analytics = getAnalytics(firebaseApp);
 
 function App() {
   const [user] = useAuthState(auth)
-  console.log(user)
+  // console.log(auth.currentUser)
   return (
     <>
       <nav className='navBar'>
@@ -39,7 +39,7 @@ function App() {
       </nav>
 
       <section>
-        {user ? <ChatRoom user={user.displayName} /> : <p className='getStarted-msg'>Get Started</p>}
+        {user ? <ChatRoom /> : <p className='getStarted-msg'>Get Started</p>}
       </section>
 
     </>
@@ -68,7 +68,7 @@ function SignOut() {
 
 
 // CHAT-ROOM COMPONENT
-function ChatRoom(props) {
+function ChatRoom() {
   const messagesRef = collection(firestore,'messages'); // reference firestore collection
   const queRy = query(messagesRef, orderBy('createdAt'), limit(25));
 
@@ -78,9 +78,10 @@ function ChatRoom(props) {
 
   const sendMessage = async (e)=>{
     e.preventDefault();
-    const {uid} = auth.currentUser;
+    const {uid, displayName} = auth.currentUser;
 
     await addDoc(messagesRef, {
+      name: displayName,
       text: formValue,
       createdAt: serverTimestamp(),
       uid
@@ -93,7 +94,7 @@ return (
   <>
       <p className='chatRoom-title'>✆</p>
       <div className='messageDisplay'>
-          {messages && messages.map(msg => <ChatMessage username={props.user} key={msg.id} message={msg} /> )}
+          {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} /> )}
       </div>
 
       <form className='messageForm' onSubmit={sendMessage}>
@@ -108,12 +109,12 @@ return (
 
 // MESSAGE COMPONENT
 function ChatMessage(props) {
-  const { text, uid } = props.message
+  const { text, uid, name } = props.message
   const messageClass = uid === auth.currentUser.uid ? 'sent' : 'received';
 
 return (
   <div className={`message${messageClass} bubble`}>
-    <p className='username'>{props.username}</p>
+    <p className='username'>{name}</p>
     <p className={`messageText ${messageClass}`}>{text}</p>
   </div>
 )
