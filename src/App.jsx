@@ -31,7 +31,6 @@ const firestore = firebase.firestore();
 
 
 function App() {
-
   // User LogIn / LogOut
   const [user] = useAuthState()
 
