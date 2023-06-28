@@ -39,7 +39,7 @@ function App() {
       </nav>
 
       <section>
-        {user ? <ChatRoom /> : <h2 className='getStarted-msg'>Get Started</h2>}
+        {user ? <ChatRoom /> : <p className='getStarted-msg'>Get Started</p>}
       </section>
 
     </>

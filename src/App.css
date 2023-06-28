@@ -56,6 +56,16 @@
   margin-right: 40px;
 }
 
+.getStarted-msg{
+  font-size: 30px;
+  color: rgb(0, 0, 0);
+  height: 70px;
+  font-weight: bold;
+  text-shadow: rgba(0, 0, 0, 0.413) -4px 3px 5px;
+  margin-top: 50px;
+  margin-bottom: 10px;
+}
+
 /* ChatRoom */
 .chatRoom-title{
   color: rgb(0, 0, 0);
