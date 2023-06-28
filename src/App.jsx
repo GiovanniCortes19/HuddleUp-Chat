@@ -42,6 +42,10 @@ function App() {
       <section>
         {user ? <ChatRoom /> : <SignIn />}
       </section>
+      <section>
+        <ChatRoom />
+      </section>
+
     </>
   )
 }
@@ -70,13 +74,14 @@ function SignOut() {
 
 // CHAT-ROOM COMPONENT
 function ChatRoom() {
-  const messagesRef = new firestore.collection('messages'); // reference firestore collection
+  const messagesRef = firestore.collection('messages'); // reference firestore collection
   const query = messagesRef.orderBy('createdAt').limit(25);
 
   const [messages] = useCollectionData(query, {idField: 'id'}) // listen to the data
 
 return (
   <>
+      <h1>Messages</h1>
       <div>
           {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} /> )}
       </div>
