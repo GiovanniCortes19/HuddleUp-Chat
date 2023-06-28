@@ -4,7 +4,7 @@ import './App.css'
 // New Firebase Imports
 import {initializeApp} from 'firebase/app'
 import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from 'firebase/auth'
-import { getFirestore, collection, query, orderBy, limit, addDoc, serverTimestamp, query } from 'firebase/firestore'
+import { getFirestore, collection, query, orderBy, limit, addDoc, serverTimestamp } from 'firebase/firestore'
 import {getAnalytics} from 'firebase/analytics'
 
 // Firebase Hooks
@@ -33,15 +33,13 @@ function App() {
 
   return (
     <>
-      <div>
-        <h1>Huddle Up</h1>
-      </div>
+      <nav className='navBar'>
+        <h1 className='title'>Huddle Up</h1>
+        {user ? <SignOut/> : <div className='signInOptions'><p>Sign In with:</p><SignIn/></div>}
+      </nav>
 
       <section>
-        {user ? <ChatRoom /> : <SignIn />}
-      </section>
-      <section>
-        <ChatRoom />
+        {user ? <ChatRoom /> : <h2 className='getStarted-msg'>Get Started</h2>}
       </section>
 
     </>
@@ -56,7 +54,7 @@ function SignIn(){
    }
 
   return (
-      <button onClick={signInWithGoogle}>Sign in with Google</button>
+      <button className='sign-in signBtn' onClick={signInWithGoogle}>Google</button>
   )
 }
 
@@ -64,7 +62,7 @@ function SignIn(){
 function SignOut() {
 
   return auth.currentUser && (
-    <button className='sign-out' onClick={()=> signOut(auth)}>Sign Out</button>
+    <button className='sign-out signBtn' onClick={()=> signOut(auth)}>Sign Out</button>
   )
 }
 

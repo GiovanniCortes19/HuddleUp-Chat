@@ -4,7 +4,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: rgba(68, 34, 100, 0.621);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -16,15 +16,10 @@
 body {
   margin: 0;
   display: flex;
+  align-items: center;
   min-width: 320px;
   min-height: 100vh;
-  border: solid rgb(223, 195, 56) 2px
-
-}
-
-h1 {
-  font-size: 3em;
-  line-height: 1;
+  overflow: hidden;
 }
 
 
