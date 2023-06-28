@@ -4,14 +4,15 @@ import './App.css'
 // New Firebase Imports
 import {initializeApp} from 'firebase/app'
 import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from 'firebase/auth'
-import { getFirestore, collection, query, orderBy, limit, addDoc, serverTimestamp } from 'firebase/firestore'
+import { getFirestore, collection, query, orderBy, limit, addDoc, serverTimestamp, query } from 'firebase/firestore'
+import {getAnalytics} from 'firebase/analytics'
 
 // Firebase Hooks
 import {useAuthState} from 'react-firebase-hooks/auth'
 import {useCollectionData} from 'react-firebase-hooks/firestore'
 
 // Firebase project configuration
-firebase.initializeApp({
+const firebaseApp = initializeApp({
   apiKey: "AIzaSyBp5QdKwkon53jA3FAMDBhXfx1A7e46uwI",
   authDomain: "huddleup-chat.firebaseapp.com",
   projectId: "huddleup-chat",
@@ -22,9 +23,9 @@ firebase.initializeApp({
 })
 
 // REFERECE FIREBASE SDK
-const auth = firebase.auth();
-const firestore = firebase.firestore();
-
+const auth = getAuth(firebaseApp);
+const firestore = getFirestore(firebaseApp);
+const analytics = getAnalytics(firebaseApp);
 
 
 function App() {
@@ -49,10 +50,9 @@ function App() {
 
 // SIGN-IN COMPONENT
 function SignIn(){
-
   const signInWithGoogle = () => { 
-      const provider = new firebase.auth.GoogleAuthProvider(); // provider for google auth
-      auth.signInWithPopup(provider)
+      const provider = new GoogleAuthProvider(); // provider for google auth
+      signInWithPopup(auth, provider)
    }
 
   return (
@@ -64,17 +64,17 @@ function SignIn(){
 function SignOut() {
 
   return auth.currentUser && (
-    <button onClick={()=> auth.signOut()}>Sign Out</button>
+    <button className='sign-out' onClick={()=> signOut(auth)}>Sign Out</button>
   )
 }
 
 
 // CHAT-ROOM COMPONENT
 function ChatRoom() {
-  const messagesRef = firestore.collection('messages'); // reference firestore collection
-  const query = messagesRef.orderBy('createdAt').limit(25);
+  const messagesRef = collection(firestore,'messages'); // reference firestore collection
+  const queRy = query(messagesRef, orderBy('createdAt'), limit(25));
 
-  const [messages] = useCollectionData(query, {idField: 'id'}) // listen to the data
+  const [messages] = useCollectionData(queRy, {idField: 'id'}) // listen to the data
 
   const [formValue, setFormValue] = useState('')
 
@@ -82,9 +82,9 @@ function ChatRoom() {
     e.preventDefault();
     const {uid} = auth.currentUser;
 
-    await messagesRef.add({
+    await addDoc(messagesRef, {
       text: formValue,
-      createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+      createdAt: serverTimestamp(),
       uid
     })
 
