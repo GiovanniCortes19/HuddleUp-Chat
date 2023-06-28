@@ -83,14 +83,20 @@
   font-size: medium;
 }
 .formBtn{
-  background-color: rgba(13, 52, 169, 0.824);
-  border-radius: 50px;
+  background-color: rgb(44, 81, 192);
+  border-radius: 12px;
   border: none;
   box-shadow: -2px 2px 5px 2px rgba(120, 120, 120, 0.503);
   height: 35px;
   padding: 0px 10px;
   font-weight: bold;
   text-transform: uppercase;
+  cursor: pointer;
+}
+.formBtn:hover{
+  background-color: rgba(111, 19, 197, 0.572);
+  border-radius: 50px;
+
 }
 
 /* Messages */
@@ -118,14 +124,14 @@
 .sent {
   align-self: flex-end;
   margin-right: 3em;
-  background-color: rgba(43, 76, 226, 0.801);
+  background-color: rgba(29, 61, 206, 0.883);
   box-shadow: -3px 4px 4px 0px rgba(37, 67, 200, 0.646);
 
 }
 .received{
   align-self: flex-start;
   margin-left: 3em;
-  background-color: rgba(137, 43, 226, 0.801);
+  background-color: rgba(111, 19, 197, 0.826);
   box-shadow: -3px 4px 4px 0px rgba(122, 37, 201, 0.595);
 
 }
