@@ -91,7 +91,7 @@ function ChatRoom() {
 
 return (
   <>
-      <h1 className='chatRoom-title'>Inside the Huddle</h1>
+      <p className='chatRoom-title'>✆</p>
       <div className='messageDisplay'>
           {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} /> )}
       </div>
