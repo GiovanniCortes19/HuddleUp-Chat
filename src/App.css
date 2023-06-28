@@ -6,13 +6,14 @@
   width: 100vw;
   height: 95vh;
   border-radius: 40px;
-  background-color: #242424;
+  background-color: #5757579c;
 }
 
 .navBar {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   width: 100%;
+  height: 80px;
   align-items: center;
   background-color: whitesmoke;
   color: black;
@@ -21,7 +22,11 @@
   border-bottom-left-radius: 25px;
   border-bottom-right-radius: 25px;
   box-shadow: 2px 6px 6px 0px rgba(245, 245, 245, 0.503);
+}
 
+.title {
+  font-size: xx-large;
+  margin-left: 30px;
 }
 
 .signInOptions {
@@ -29,6 +34,7 @@
   align-items: center;
   gap: 1em;
   height: 40%;
+  margin-right: 40px;
 }
 .signInOptions>p{
   font-weight: bold;
@@ -37,4 +43,10 @@
 .signBtn {
   width: 7em;
   height: 30px;
+  background-color: black;
+  border: none;
+  border-radius: 20px;
+}
+.signBtn:hover{
+  background-color: rgba(0, 0, 0, 0.36);
 }

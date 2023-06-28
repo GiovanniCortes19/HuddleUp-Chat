@@ -34,7 +34,7 @@ function App() {
   return (
     <>
       <nav className='navBar'>
-        <h1 className='title'>Huddle Up</h1>
+        <h1 className='title'>✆ HuddleUp</h1>
         {user ? <SignOut/> : <div className='signInOptions'><p>Sign In with:</p><SignIn/></div>}
       </nav>
 
