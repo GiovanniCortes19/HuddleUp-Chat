@@ -98,7 +98,7 @@ return (
 
       <form className='messageForm' onSubmit={sendMessage}>
 
-        <input className='messageInput' value={formValue} onChange={(event)=> setFormValue(event.target.value)} type="text" />
+        <input className='messageInput' value={formValue} onChange={(event)=> setFormValue(event.target.value)} type="text" placeholder='Hi there...' />
         <button className='formBtn' type='submit'>Send</button>
 
       </form>

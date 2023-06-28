@@ -67,6 +67,32 @@
   margin-bottom: 10px;
 }
 
+.messageForm {
+  margin-top: 20px;
+  padding: 10px;
+}
+.messageInput{
+  background-color: whitesmoke;
+  border-radius: 7px;
+  border: none;
+  box-shadow: -2px 2px 5px 2px rgba(120, 120, 120, 0.503);
+  margin-right: 10px;
+  height: 25px;
+  padding: 5px;
+  color: black;
+  font-size: medium;
+}
+.formBtn{
+  background-color: rgba(13, 52, 169, 0.824);
+  border-radius: 50px;
+  border: none;
+  box-shadow: -2px 2px 5px 2px rgba(120, 120, 120, 0.503);
+  height: 35px;
+  padding: 0px 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
 /* Messages */
 
 .message {
