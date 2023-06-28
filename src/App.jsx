@@ -1,13 +1,10 @@
 import { useState } from 'react'
 import './App.css'
-import firebase from 'firebase/compat/app'; 
-import 'firebase/compat/firestore';
-import 'firebase/compat/auth';
 
-// // Components
-// import SignIn from './components/SignIn'
-// import ChatRoom from './components/ChatRoom'
-// import SignOut from './components/SignOut'
+// New Firebase Imports
+import {initializeApp} from 'firebase/app'
+import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from 'firebase/auth'
+import { getFirestore, collection, query, orderBy, limit, addDoc, serverTimestamp } from 'firebase/firestore'
 
 // Firebase Hooks
 import {useAuthState} from 'react-firebase-hooks/auth'
@@ -79,6 +76,22 @@ function ChatRoom() {
 
   const [messages] = useCollectionData(query, {idField: 'id'}) // listen to the data
 
+  const [formValue, setFormValue] = useState('')
+
+  const sendMessage = async (e)=>{
+    e.preventDefault();
+    const {uid} = auth.currentUser;
+
+    await messagesRef.add({
+      text: formValue,
+      createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+      uid
+    })
+
+    setFormValue('')
+  }
+
+
 return (
   <>
       <h1>Messages</h1>
@@ -86,17 +99,20 @@ return (
           {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} /> )}
       </div>
 
-      <div>
+      <form onSubmit={sendMessage}>
 
-      </div>
+        <input value={formValue} onChange={(event)=> setFormValue(event.target.value)} type="text" />
+        <button type='submit'>Send</button>
+
+      </form>
   </>
 )
 }
 
 // MESSAGE COMPONENT
 function ChatMessage(props) {
-  const {text, uid} = props.message
-  const messageClass = uid === auth.currentUser.uid ? 'sent' : 'received'
+  const { text, uid } = props.message
+  const messageClass = uid === auth.currentUser.uid ? 'sent' : 'received';
 
 return (
   <div className={`message ${messageClass}`}>
