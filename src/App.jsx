@@ -31,8 +31,7 @@ const firestore = firebase.firestore();
 
 
 function App() {
-  // User LogIn / LogOut
-  const [user] = useAuthState()
+  const [user] = useAuthState(auth)
 
   return (
     <>
@@ -47,11 +46,11 @@ function App() {
   )
 }
 
+// SIGN-IN COMPONENT
 function SignIn(){
 
   const signInWithGoogle = () => { 
-      // provider for google auth
-      const provider = new firebase.auth.GoogleAuthProvider();
+      const provider = new firebase.auth.GoogleAuthProvider(); // provider for google auth
       auth.signInWithPopup(provider)
    }
 
@@ -60,20 +59,21 @@ function SignIn(){
   )
 }
 
+// SIGN-OUT COMPONENT
 function SignOut() {
-
 
   return auth.currentUser && (
     <button onClick={()=> auth.signOut()}>Sign Out</button>
   )
 }
 
+
+// CHAT-ROOM COMPONENT
 function ChatRoom() {
-  // reference a firestore collection in the firestore database
-  const messagesRef = new firestore.collection('messages');
+  const messagesRef = new firestore.collection('messages'); // reference firestore collection
   const query = messagesRef.orderBy('createdAt').limit(25);
-  // listen to the data
-  const [messages] = useCollectionData(query, {idField: 'id'})
+
+  const [messages] = useCollectionData(query, {idField: 'id'}) // listen to the data
 
 return (
   <>
@@ -88,7 +88,7 @@ return (
 )
 }
 
-// ChatMessage Component
+// MESSAGE COMPONENT
 function ChatMessage(props) {
   const {text, uid} = props.message
 
