@@ -3,7 +3,7 @@ import './App.css'
 
 // New Firebase Imports
 import {initializeApp} from 'firebase/app'
-import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from 'firebase/auth'
+import { getAuth, GoogleAuthProvider, GithubAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from 'firebase/auth'
 import { getFirestore, collection, query, orderBy, limit, addDoc, serverTimestamp } from 'firebase/firestore'
 import {getAnalytics} from 'firebase/analytics'
 
@@ -28,6 +28,7 @@ const firestore = getFirestore(firebaseApp);
 const analytics = getAnalytics(firebaseApp);
 
 
+// APP COMPONENT
 function App() {
   const [user] = useAuthState(auth)
 
@@ -35,7 +36,7 @@ function App() {
     <>
       <nav className='navBar'>
         <h1 className='title'>✆ HuddleUp</h1>
-        {user ? <SignOut/> : <div className='signInOptions'><p>Sign In with:</p><SignIn/></div>}
+        {user ? <SignOut/> : <div className='signInOptions'><p>Sign In with:</p><SignIn/><GitHubSignIn/></div>}
       </nav>
 
       <section>
@@ -57,6 +58,19 @@ function SignIn(){
       <button className='sign-in signBtn' onClick={signInWithGoogle}>Google</button>
   )
 }
+
+// GITHUB-SIGNIN COMPONENT
+function GitHubSignIn(){
+  const signInWithGitHub = () => { 
+    const provider = new GithubAuthProvider(); // provider for github auth
+    signInWithPopup(auth, provider)
+   }
+
+  return (
+    <button className='sign-in signBtn' onClick={signInWithGitHub}>GitHub</button>
+  )
+}
+
 
 // SIGN-OUT COMPONENT
 function SignOut() {
