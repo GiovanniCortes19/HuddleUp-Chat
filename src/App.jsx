@@ -30,7 +30,7 @@ const analytics = getAnalytics(firebaseApp);
 
 function App() {
   const [user] = useAuthState(auth)
-  // console.log(auth.currentUser)
+
   return (
     <>
       <nav className='navBar'>
@@ -93,7 +93,7 @@ function ChatRoom() {
 return (
   <>
       <p className='chatRoom-title'>✆</p>
-      
+
       <div className='messageDisplay'>
           {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} /> )}
       </div>
