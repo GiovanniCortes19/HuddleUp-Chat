@@ -8,10 +8,15 @@
   border-radius: 40px;
   background-color: rgba(245, 245, 245, 0.852);
   padding: 5px;
-  overflow:scroll;
+  overflow:hidden;
 }
 #root::-webkit-scrollbar{
   display: none;
+}
+
+#scrollContainer {
+  overflow: scroll;
+  height: 100%;
 }
 
 .navBar {
@@ -84,13 +89,12 @@
 }
 
 .messageForm {
-  position: sticky;
-  bottom: 0px;
-  /* padding: 15px; */
+  position:absolute;
+  bottom: 60px;
+  left: 20vw;
   padding-bottom: 15px;
   height: 40px;
-  border: none;
-  /* background-color: rgba(211, 211, 211, 0.869); */
+  width: 60%;
   box-shadow: inset 0px 0px 0px 0px rgba(146, 146, 146, 0.681);
   margin-top: 0px;
 }
@@ -101,7 +105,7 @@
   box-shadow: -2px 2px 5px 2px rgba(120, 120, 120, 0.503);
   margin-right: 10px;
   height: 25px;
-  width: 40%;
+  width: 60%;
   padding: 5px;
   color: black;
   font-size: medium;
@@ -159,6 +163,7 @@
   display: flex;
   flex-direction: column;
   row-gap: 30px;
+  margin-bottom: 180px;
 }
 
 .sent {

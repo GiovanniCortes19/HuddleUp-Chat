@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import './App.css'
 
 // New Firebase Imports
@@ -32,6 +32,17 @@ const analytics = getAnalytics(firebaseApp);
 function App() {
   const [user] = useAuthState(auth)
 
+  const scrollContainer = useRef(null)
+
+  useEffect(() => {
+    if (scrollContainer) {
+      scrollContainer.current.addEventListener('DOMNodeInserted', event => {
+        const { currentTarget: target } = event;
+        target.scroll({ top: target.scrollHeight, behavior: 'smooth' });
+      });
+    }
+  }, [])
+
   return (
     <>
       <nav className='navBar'>
@@ -39,7 +50,7 @@ function App() {
         {user ? <SignOut/> : <div className='signInOptions'><p>Sign In with:</p><SignIn/><GitHubSignIn/></div>}
       </nav>
 
-      <section>
+      <section ref={scrollContainer} id='scrollContainer'>
         {user ? <ChatRoom /> : <p className='getStarted-msg'>Get Started</p>}
       </section>
 
@@ -90,6 +101,21 @@ function ChatRoom() {
 
   const [formValue, setFormValue] = useState('')
 
+  // "Scroll to last Message" effect
+  // const scrollContainer = useRef(null)
+
+  // useEffect(() => {
+  //   if (scrollContainer) {
+  //     scrollContainer.current.addEventListener('DOMNodeInserted', event => {
+  //       const { currentTarget: target } = event;
+  //       target.scroll({ top: target.scrollHeight, behavior: 'smooth' });
+  //     });
+  //   }
+  // }, [])
+
+
+
+  // Send Message to the chat database
   const sendMessage = async (e)=>{
     e.preventDefault();
     const {uid, displayName} = auth.currentUser;
@@ -108,7 +134,7 @@ return (
   <>
       <p className='chatRoom-title'>✆</p>
 
-      <div className='messageDisplay'>
+      <div  className='messageDisplay'>
           {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} /> )}
       </div>
 
