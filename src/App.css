@@ -181,10 +181,18 @@
 /* RESPONSIVE */
 
 @media only screen and (max-width: 480px){
+/* body{
+  padding: 0;
+} */
+#root{
+  height: 80vh;
+  margin-top: 0;
+}
 .title{
-  width: 20%;
+  font-size: x-large;
 }
 .signInOptions{
-  width: 30%;
+  /* width: 10%; */
+  font-size: small;
 }
 }
