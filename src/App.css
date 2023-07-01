@@ -176,3 +176,15 @@
   box-shadow: -3px 4px 4px 0px rgba(122, 37, 201, 0.595);
 
 }
+
+
+/* RESPONSIVE */
+
+@media only screen and (max-width: 480px){
+.title{
+  width: 20%;
+}
+.signInOptions{
+  width: 30%;
+}
+}
