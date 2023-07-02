@@ -222,14 +222,12 @@ body{
 .signBtn {
   width: 13vw;
   height: 5vh;
-  /* border-radius: 20px; */
   font-size: small;
 }
 
 .sign-out {
-  width: 40vw;
+  width: 35vw;
   height: 5vh;
-  border: red solid 1px;
 }
 
 .messagesent {
@@ -237,6 +235,10 @@ body{
 }
 .messagereceived{
   margin-left: 1.6em;
+}
+
+.chatRoom-title {
+  font-size: 50px;
 }
 
 }
