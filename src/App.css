@@ -229,7 +229,7 @@ body{
 .sign-out {
   width: 40vw;
   height: 5vh;
-
+  border: red solid 1px;
 }
 
 .messagesent {
