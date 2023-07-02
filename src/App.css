@@ -181,18 +181,49 @@
 /* RESPONSIVE */
 
 @media only screen and (max-width: 480px){
-/* body{
+body{
   padding: 0;
-} */
-#root{
-  height: 80vh;
-  margin-top: 0;
+  margin: 0;
 }
+#root{
+  height: 85vh;
+  margin-top: -75px;
+  width: 100vw;
+}
+
+.navBar{
+  display: flex;
+  justify-content:space-evenly;
+  width: 100%;
+  padding: 0;
+}
+
 .title{
-  font-size: x-large;
+  font-size:larger;
+  width: 40vw;
+  height: 5vh;
+  text-align: center;
+  padding-top: 10px;
+  margin-left: 8px;
 }
 .signInOptions{
-  /* width: 10%; */
+  width: 50vw;
+  font-size: small;
+  height: 7vh;
+  justify-content: space-between;
+  position: relative;
+  left: 25px;
+  gap: 5px;
+}
+.signInOptions>p{
+  width: 19vw;
+}
+
+.signBtn {
+  width: 13vw;
+  height: 5vh;
+  /* border-radius: 20px; */
   font-size: small;
 }
+
 }
