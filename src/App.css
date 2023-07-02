@@ -227,14 +227,16 @@ body{
 }
 
 .sign-out {
-  width: 10vw;
+  width: 40vw;
+  height: 5vh;
+
 }
 
 .messagesent {
-  margin-right: 2em;
+  margin-right: 1.6em;
 }
 .messagereceived{
-  margin-left: 2em;
+  margin-left: 1.6em;
 }
 
 }
