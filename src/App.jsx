@@ -95,25 +95,11 @@ function SignOut() {
 // CHAT-ROOM COMPONENT
 function ChatRoom() {
   const messagesRef = collection(firestore,'messages'); // reference firestore collection
-  const queRy = query(messagesRef, orderBy('createdAt'), limit(25));
+  const queRy = query(messagesRef, orderBy('createdAt'), limit(500));
 
   const [messages] = useCollectionData(queRy, {idField: 'id'}) // listen to the data
 
   const [formValue, setFormValue] = useState('')
-
-  // "Scroll to last Message" effect
-  // const scrollContainer = useRef(null)
-
-  // useEffect(() => {
-  //   if (scrollContainer) {
-  //     scrollContainer.current.addEventListener('DOMNodeInserted', event => {
-  //       const { currentTarget: target } = event;
-  //       target.scroll({ top: target.scrollHeight, behavior: 'smooth' });
-  //     });
-  //   }
-  // }, [])
-
-
 
   // Send Message to the chat database
   const sendMessage = async (e)=>{
