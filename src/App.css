@@ -226,4 +226,15 @@ body{
   font-size: small;
 }
 
+.sign-out {
+  width: 10vw;
+}
+
+.messagesent {
+  margin-right: 2em;
+}
+.messagereceived{
+  margin-left: 2em;
+}
+
 }
