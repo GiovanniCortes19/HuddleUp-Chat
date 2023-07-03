@@ -242,3 +242,14 @@ body{
 }
 
 }
+
+@supports (-webkit-touch-callout: none) {
+  /* CSS specific to iOS devices */ 
+  :root{
+    background-color: rgba(33, 16, 48, 0.621);
+
+  }
+  .signBtn {
+    color: white;
+  }
+}
