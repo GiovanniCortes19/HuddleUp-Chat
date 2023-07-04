@@ -249,7 +249,33 @@ body{
     background-color: rgba(33, 16, 48, 0.621);
 
   }
+
+  .signInOptions{
+    width: 50vw;
+    font-size: small;
+    height: 7vh;
+    justify-content: space-between;
+    position: relative;
+    left: 25px;
+    gap: 5px;
+  }
+  .signInOptions>p{
+    width: 19vw;
+  }
+  
   .signBtn {
+    width: 13vw;
+    height: 5vh;
+    font-size: small;
+    color: white;
+  }
+  
+  .sign-out {
+    width: 35vw;
+    height: 5vh;
+  }
+
+  .messageText{
     color: white;
   }
 }
