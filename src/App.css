@@ -8,9 +8,9 @@
   border-radius: 40px;
   background-color: rgba(245, 245, 245, 0.852);
   padding: 5px;
-  overflow:hidden;
+  overflow: hidden;
 }
-#root::-webkit-scrollbar{
+#root::-webkit-scrollbar {
   display: none;
 }
 
@@ -20,7 +20,7 @@
 }
 
 .navBar {
-  position:sticky;
+  position: sticky;
   top: 2px;
   display: flex;
   justify-content: space-between;
@@ -48,7 +48,7 @@
   height: 40%;
   margin-right: 40px;
 }
-.signInOptions>p{
+.signInOptions > p {
   font-weight: bold;
 }
 
@@ -58,8 +58,9 @@
   background-color: black;
   border: none;
   border-radius: 20px;
+  text-transform: capitalize;
 }
-.signBtn:hover{
+.signBtn:hover {
   background-color: rgba(0, 0, 0, 0.36);
 }
 
@@ -67,7 +68,7 @@
   margin-right: 40px;
 }
 
-.getStarted-msg{
+.getStarted-msg {
   font-size: 30px;
   color: rgb(0, 0, 0);
   height: 70px;
@@ -78,7 +79,7 @@
 }
 
 /* ChatRoom */
-.chatRoom-title{
+.chatRoom-title {
   color: rgb(0, 0, 0);
   height: 70px;
   font-weight: bold;
@@ -89,7 +90,7 @@
 }
 
 .messageForm {
-  position:absolute;
+  position: absolute;
   bottom: 60px;
   left: 20vw;
   padding-bottom: 15px;
@@ -98,7 +99,7 @@
   box-shadow: inset 0px 0px 0px 0px rgba(146, 146, 146, 0.681);
   margin-top: 0px;
 }
-.messageInput{
+.messageInput {
   background-color: whitesmoke;
   border-radius: 7px;
   border: none;
@@ -110,7 +111,7 @@
   color: black;
   font-size: medium;
 }
-.formBtn{
+.formBtn {
   background-color: rgb(44, 81, 192);
   border-radius: 12px;
   border: none;
@@ -121,21 +122,21 @@
   text-transform: uppercase;
   cursor: pointer;
 }
-.formBtn:hover{
+.formBtn:hover {
   background-color: rgba(111, 19, 197, 0.572);
   border-radius: 50px;
 }
 
 /* Messages */
-.username{
+.username {
   margin: 0 0 -15px -5px;
   color: rgba(0, 0, 0, 0.579);
   font-size: 0.7em;
-  font-weight:600;
+  font-weight: 600;
   margin-left: 5px;
 }
 
-.bubble{
+.bubble {
   border: none;
   padding: 0px 10px;
   height: 40px;
@@ -148,7 +149,7 @@
   align-self: flex-end;
   margin-right: 3em;
 }
-.messagereceived{
+.messagereceived {
   align-self: flex-start;
   margin-left: 3em;
 }
@@ -169,88 +170,41 @@
 .sent {
   background-color: rgba(29, 61, 206, 0.883);
   box-shadow: -3px 4px 4px 0px rgba(37, 67, 200, 0.646);
-
 }
-.received{
+.received {
   background-color: rgba(111, 19, 197, 0.826);
   box-shadow: -3px 4px 4px 0px rgba(122, 37, 201, 0.595);
-
 }
-
 
 /* RESPONSIVE */
 
-@media only screen and (max-width: 480px){
-body{
-  padding: 0;
-  margin: 0;
-}
-#root{
-  height: 85vh;
-  margin-top: -75px;
-  width: 100vw;
-}
-
-.navBar{
-  display: flex;
-  justify-content:space-evenly;
-  width: 100%;
-  padding: 0;
-}
-
-.title{
-  font-size:larger;
-  width: 40vw;
-  height: 5vh;
-  text-align: center;
-  padding-top: 10px;
-  margin-left: 8px;
-}
-.signInOptions{
-  width: 50vw;
-  font-size: small;
-  height: 7vh;
-  justify-content: space-between;
-  position: relative;
-  left: 25px;
-  gap: 5px;
-}
-.signInOptions>p{
-  width: 19vw;
-}
-
-.signBtn {
-  width: 13vw;
-  height: 5vh;
-  font-size: small;
-}
-
-.sign-out {
-  width: 35vw;
-  height: 5vh;
-}
-
-.messagesent {
-  margin-right: 1.6em;
-}
-.messagereceived{
-  margin-left: 1.6em;
-}
-
-.chatRoom-title {
-  font-size: 50px;
-}
-
-}
-
-@supports (-webkit-touch-callout: none) {
-  /* CSS specific to iOS devices */ 
-  :root{
-    background-color: rgba(33, 16, 48, 0.621);
-
+@media only screen and (max-width: 480px) {
+  body {
+    padding: 0;
+    margin: 0;
+  }
+  #root {
+    height: 85vh;
+    margin-top: -75px;
+    width: 100vw;
   }
 
-  .signInOptions{
+  .navBar {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    padding: 0;
+  }
+
+  .title {
+    font-size: larger;
+    width: 40vw;
+    height: 5vh;
+    text-align: center;
+    padding-top: 10px;
+    margin-left: 8px;
+  }
+  .signInOptions {
     width: 50vw;
     font-size: small;
     height: 7vh;
@@ -259,23 +213,65 @@ body{
     left: 25px;
     gap: 5px;
   }
-  .signInOptions>p{
+  .signInOptions > p {
     width: 19vw;
   }
-  
+
+  .signBtn {
+    width: 13vw;
+    height: 5vh;
+    font-size: small;
+  }
+
+  .sign-out {
+    width: 35vw;
+    height: 5vh;
+  }
+
+  .messagesent {
+    margin-right: 1.6em;
+  }
+  .messagereceived {
+    margin-left: 1.6em;
+  }
+
+  .chatRoom-title {
+    font-size: 50px;
+  }
+}
+
+@supports (-webkit-touch-callout: none) {
+  /* CSS specific to iOS devices */
+  :root {
+    background-color: rgba(33, 16, 48, 0.621);
+  }
+
+  .signInOptions {
+    width: 50vw;
+    font-size: small;
+    height: 7vh;
+    justify-content: space-between;
+    position: relative;
+    left: 25px;
+    gap: 5px;
+  }
+  .signInOptions > p {
+    width: 19vw;
+  }
+
   .signBtn {
     width: 13vw;
     height: 5vh;
     font-size: small;
     color: white;
   }
-  
+
   .sign-out {
     width: 35vw;
     height: 5vh;
   }
 
-  .messageText{
+  .messageText {
     color: white;
   }
 }
