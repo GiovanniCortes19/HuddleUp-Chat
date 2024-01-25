@@ -9,13 +9,15 @@ import {
 const SignIn = ({ authMethod, auth }) => {
   // sign in with google
   const signInWithGoogle = () => {
-    const provider = new GoogleAuthProvider(); // provider for google auth
+    // provider for google auth
+    const provider = new GoogleAuthProvider();
     signInWithPopup(auth, provider);
   };
 
   // sign in with github
   const signInWithGitHub = () => {
-    const provider = new GithubAuthProvider(); // provider for github auth
+    // provider for github auth
+    const provider = new GithubAuthProvider();
     signInWithPopup(auth, provider);
   };
 

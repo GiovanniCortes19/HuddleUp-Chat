@@ -5,14 +5,7 @@ import './App.css';
 import { initializeApp } from 'firebase/app';
 
 // Firebase Auth
-import {
-  getAuth,
-  GoogleAuthProvider,
-  GithubAuthProvider,
-  signInWithPopup,
-  signOut,
-  onAuthStateChanged,
-} from 'firebase/auth';
+import { getAuth } from 'firebase/auth';
 
 // Firebase Store
 import {
@@ -50,6 +43,7 @@ const analytics = getAnalytics(firebaseApp);
 
 // COMPONENTS
 import SignIn from './components/SignIn';
+import SignOut from './components/SignOut';
 
 // APP COMPONENT
 function App() {
@@ -71,7 +65,7 @@ function App() {
       <nav className="navBar">
         <h1 className="title">✆ HuddleUp</h1>
         {user ? (
-          <SignOut />
+          <SignOut auth={auth} />
         ) : (
           <div className="signInOptions">
             <p>Sign In with:</p>
@@ -85,17 +79,6 @@ function App() {
         {user ? <ChatRoom /> : <p className="getStarted-msg">Get Started</p>}
       </section>
     </>
-  );
-}
-
-// SIGN-OUT COMPONENT
-function SignOut() {
-  return (
-    auth.currentUser && (
-      <button className="sign-out signBtn" onClick={() => signOut(auth)}>
-        Sign Out
-      </button>
-    )
   );
 }
 
