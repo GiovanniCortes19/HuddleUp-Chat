@@ -60,7 +60,7 @@ function App() {
           <SignOut auth={auth} />
         ) : (
           <div className="signInOptions">
-            <p>Sign In with:</p>
+            <p>Sign In:</p>
             <SignIn authMethod={'google'} auth={auth} />
             <SignIn authMethod={'github'} auth={auth} />
           </div>
