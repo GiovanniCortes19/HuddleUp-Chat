@@ -1,8 +1,7 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 
 // MESSAGE COMPONENT
-const ChatMessage = ({ key, message, auth }) => {
+const ChatMessage = ({ message, auth }) => {
   const { text, uid, name } = message;
   const messageClass = uid === auth.currentUser.uid ? 'sent' : 'received';
 
@@ -14,6 +13,9 @@ const ChatMessage = ({ key, message, auth }) => {
   );
 };
 
-ChatMessage.propTypes = {};
+ChatMessage.propTypes = {
+  message: PropTypes.object,
+  auth: PropTypes.object,
+};
 
 export default ChatMessage;

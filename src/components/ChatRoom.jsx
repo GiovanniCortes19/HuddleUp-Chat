@@ -49,8 +49,8 @@ const ChatRoom = ({ auth, firestore }) => {
       {/* Display of messages feed */}
       <div className="messageDisplay">
         {messages &&
-          messages.map((msg) => (
-            <ChatMessage key={msg.id} message={msg} auth={auth} />
+          messages.map((msg, index) => (
+            <ChatMessage key={index} message={msg} auth={auth} />
           ))}
       </div>
 
@@ -71,6 +71,9 @@ const ChatRoom = ({ auth, firestore }) => {
   );
 };
 
-ChatRoom.propTypes = {};
+ChatRoom.propTypes = {
+  auth: PropTypes.object,
+  firestore: PropTypes.object,
+};
 
 export default ChatRoom;
